@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Generator!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/7652f157a9.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://raw.githack.com/nickgraffis/versionify/master/versionify.js"></script>
+    <script src="https://kit.fontawesome.com/7652f157a9.js" crossorigin="anonymous"></script>
+    <script>
+      styles('styles.css');
+      scripts('index.js', 'body');
+    </script>
+  </head>
+  <body>
+  <section class="section">
+    <div id="container" class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <div class="base-timer" id="result-track" style="visibility: hidden;">
+            <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <g class="base-timer__circle">
+                <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                <path
+                  stroke-dasharray="283"
+                  class="base-timer__path-remaining"
+                  d="
+                    M 50, 50
+                    m -45, 0
+                    a 45,45 0 1,0 90,0
+                    a 45,45 0 1,0 -90,0
+                  "
+                ></path>
+              </g>
+            </svg>
+            <span class="base-timer__label"><p class="has-text-weight-semibold" id='track'></span></span>
+          </div>
+        </div>
+        <div class="column is-4">
+          <nav class="level">
+            <div class="level-item">
+              <p class="subtitle has-text-weight-bold is-3" style="font-family: monospace;">code</p>
+            </div>
+            <div class="level-item">
+              <div class="clock">
+                <div id="robot" class="emoji emoji_robot">
+                    <div class="open"></div>
+                    <div class="emoji__face">
+                      <div class="emoji__connector"></div>
+                      <div class="emoji__eyes">
+                        <div class="emoji__eye_right"></div>
+                        <div class="emoji__eye_left"></div>
+                      </div>
+                      <div class="emoji__nose"></div>
+                      <div class="emoji__mouth"></div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="level-item">
+              <p class="subtitle has-text-weight-bold is-3" style="font-family: monospace;">quiz</p>
+            </div>
+          </nav>
+        </div>
+        <div class="column is-4">
+          <div class="level-right">
+            <div class="clock" id="app"></div>
+          </div>
+        </div>
+      </div>
+      <p id="heading" class="subtitle has-text-weight-bold is-3 has-text-centered">Choose your difficulty level.</p>
+      <div id="buttons" class="column is-4 is-offset-4">
+        <div class="field">
+          <div class="control">
+            <button onclick="chooseQuiz('easy')" class="button is-fullwidth is-success has-text-weight-bold">Easy</button>
+          </div>
+          <div class="control" style="padding-top: 10px;">
+            <button onclick="chooseQuiz('medium')" class="button is-fullwidth is-warning has-text-weight-bold">Medium</button>
+          </div>
+          <div class="control" style="padding-top: 10px;">
+            <button onclick="chooseQuiz('hard')" class="button is-fullwidth is-danger has-text-weight-bold">Hard</button>
+          </div>
+        </div>
+      </div>
+      <div id="question-box" class="columns" style="visibility: hidden;">
+        <div class="column is-6">
+          <p id="question" class="subtitle has-text-weight-semibold is-4 has-text-centered"></p>
+        </div>
+        <div id="code-section" style="padding-top: 20px;" class="column is-6">
+          <textarea style="border: none; box-shadow: none; width: 100%; height: 400px; padding: 20px; font-family: monospace;" id="code" class="code">
+
+          </textarea>
+          <pre id="result" style=" margin-top: 20px;" class="code">
+
+          </pre>
+          <button id="submit-button" class="button is-pulled-right is-info" style="margin-top: 20px; margin-bottom: 20px; margin-left: 20px;"><span class="icon"><i class="fas fa-check"></i></span> <span>Submit</span></button>
+          <button id="run-button" class="button is-pulled-right is-primary" style="margin-top: 20px; margin-bottom: 20px; margin-left: 20px;"><span class="icon"><i class="fas fa-play"></i></span> <span>Run</span></button>
+          <button id="skip-button" class="button is-pulled-right is-danger" style="margin-top: 20px; margin-bottom: 20px; margin-left: 20px;"><span class="icon"><i class="fas fa-forward"></i></span> <span>Skip</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="prisim.js"></script>
+  </body>
+</html>
